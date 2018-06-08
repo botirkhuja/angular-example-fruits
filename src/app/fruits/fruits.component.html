@@ -1,5 +1,3 @@
-<p>Enter your fruit name</p>
-<input type="text" (input)="onInputChange($event)" [value]="fruitName"/>
 
 <!-- <p [ngStyle]="{backgroundColor: 'yellow'}">
   {{ fruitName }}
@@ -13,21 +11,17 @@
     {{ fruitName }}
 </p> -->
 
-<ul>
+<!-- <ul>
   <li
     *ngFor="let eachFruit of listOfFruits"
     [ngClass]="eachFruit"
     >
     <app-fruit [fruitName]="eachFruit" (removeMe)="removeFruit($event)"></app-fruit>
   </li>
-</ul>
+</ul> -->
 
+<app-fruit (fruitMatched)="fruitName = $event"></app-fruit>
 
-<button
-  class="btn btn-primary"
-  (click)="onAddingFruit()"
-  [disabled]="isButtonDisabled">
-    Add Fruit
-</button>
+<app-cart *ngIf="fruitName" [inputName]="fruitName"></app-cart>
 
-<app-banana *ngIf="showChildComponent"></app-banana>
+<button (click)="fruitName = null">Close app cart</button>

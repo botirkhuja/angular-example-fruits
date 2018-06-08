@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
-import { BananaComponent } from './banana/banana.component';
+import { CartComponent } from './cart/cart.component';
 import { FruitsComponent } from './fruits/fruits.component';
 import { FruitComponent } from './fruit/fruit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BananaComponent,
+    CartComponent,
     FruitsComponent,
     FruitComponent
   ],
