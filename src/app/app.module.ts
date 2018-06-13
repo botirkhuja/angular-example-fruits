@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { FruitsComponent } from './fruits/fruits.component';
 import { FruitComponent } from './fruit/fruit.component';
+import { CartService } from './core/cart.service';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,7 @@ import { FruitComponent } from './fruit/fruit.component';
   imports: [
     BrowserModule
   ],
-  providers: [],
+  providers: [CartService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

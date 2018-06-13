@@ -22,6 +22,6 @@
 
 <app-fruit (fruitMatched)="fruitName = $event"></app-fruit>
 
-<app-cart *ngIf="fruitName" [inputName]="fruitName"></app-cart>
+<app-cart [inputName]="fruitName"></app-cart>
 
 <button (click)="fruitName = null">Close app cart</button>

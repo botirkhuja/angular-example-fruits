@@ -13,7 +13,14 @@
   Click me
 </button> -->
 
-<p>This is Banana Component</p>
+<p>This is your cart</p>
 <p>
-  {{inputName}} is passed!
+  {{inputName}} is passed! <br/>
 </p>
+<div>
+  <ul>
+    <li *ngFor="let eachFruit of cartOfFruits">
+      {{eachFruit}}
+    </li>
+  </ul>
+</div>

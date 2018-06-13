@@ -1,11 +1,8 @@
 import {
   Component,
   OnInit,
-  OnChanges,
   DoCheck,
   AfterViewInit,
-  AfterContentInit,
-  AfterContentChecked,
   AfterViewChecked,
   OnDestroy
 } from '@angular/core';
@@ -16,24 +13,21 @@ import {
   styleUrls: ['./fruits.component.css']
 })
 export class FruitsComponent implements OnInit,
-OnChanges,
 DoCheck,
 AfterViewInit,
-AfterContentInit, AfterContentChecked, AfterViewChecked,
+AfterViewChecked,
 OnDestroy {
   fruitName: string;
-  showChildComponent: boolean = false;
-  isButtonDisabled: boolean = true;
+  showChildComponent: boolean;
+  isButtonDisabled: boolean;
   listOfFruits: Array<string> = [];
 
-  constructor() { }
+  constructor() {}
 
   ngOnInit() {
+    this.showChildComponent = false;
+    this.isButtonDisabled = true;
     console.log('onInit Happened');
-  }
-
-  ngOnChanges() {
-    console.log('onChanges Happened');
   }
 
   ngDoCheck() {
@@ -44,19 +38,6 @@ OnDestroy {
     //Called after ngAfterContentInit when the component's view has been initialized. Applies to components only.
     //Add 'implements AfterViewInit' to the class.
     console.log('AfterViewInit Happened');
-  }
-
-  ngAfterContentInit() {
-    //Called after ngOnInit when the component's or directive's content has been initialized.
-    //Add 'implements AfterContentInit' to the class.
-    console.log('AfterContentInit Happened');
-
-  }
-
-  ngAfterContentChecked() {
-    //Called after every check of the component's or directive's content.
-    //Add 'implements AfterContentChecked' to the class.
-    console.log('AfterContentChecked Happened');
   }
 
   ngAfterViewChecked() {

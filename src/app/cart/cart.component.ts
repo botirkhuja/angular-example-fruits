@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { CartService } from '../core/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -6,14 +7,18 @@ import { Component, OnInit, Input, OnDestroy } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent implements OnInit, OnDestroy {
-  counter: number = 0;
+  cartOfFruits: Array<string>;
 
   @Input() inputName: string;
 
-  constructor() { }
+  constructor(
+    private cartS: CartService,
+  ) {
+    this.cartOfFruits = this.cartS.getCartContent();
+    console.log('cart contains this fruits', this.cartOfFruits);
+  }
 
   ngOnInit() {
-
   }
 
   ngOnDestroy(): void {
