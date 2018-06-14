@@ -1,3 +1,4 @@
+import { CartService } from '../core/cart.service';
 import {
   Component,
   OnInit,
@@ -10,7 +11,8 @@ import {
 @Component({
   selector: 'app-fruits',
   templateUrl: './fruits.component.html',
-  styleUrls: ['./fruits.component.css']
+  styleUrls: ['./fruits.component.css'],
+  // providers: [CartService]
 })
 export class FruitsComponent implements OnInit,
 DoCheck,

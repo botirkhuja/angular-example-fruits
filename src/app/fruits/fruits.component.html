@@ -20,8 +20,17 @@
   </li>
 </ul> -->
 
-<app-fruit (fruitMatched)="fruitName = $event"></app-fruit>
+<div class="row">
+  <div class="col-8">
+    <app-fruit (fruitMatched)="fruitName = $event">
+        <!-- <p #parentContent>Some testing purpose</p> -->
+    </app-fruit>
+  </div>
+  <div class="col-4 align-self-end">
+    <app-cart [inputName]="fruitName"></app-cart>
+  </div>
+</div>
 
-<app-cart [inputName]="fruitName"></app-cart>
 
-<button (click)="fruitName = null">Close app cart</button>
+
+<!-- <button (click)="fruitName = null">Close app cart</button> -->

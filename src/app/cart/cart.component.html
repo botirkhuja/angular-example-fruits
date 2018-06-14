@@ -13,14 +13,17 @@
   Click me
 </button> -->
 
-<p>This is your cart</p>
-<p>
+
+<!-- <p>
   {{inputName}} is passed! <br/>
-</p>
-<div>
-  <ul>
-    <li *ngFor="let eachFruit of cartOfFruits">
+</p> -->
+<div class="cart">
+    <div class="card-header">
+        Your cart
+      </div>
+  <div class="list-group">
+    <a *ngFor="let eachFruit of cartOfFruits" class="list-group-item">
       {{eachFruit}}
-    </li>
-  </ul>
+    </a>
+  </div>
 </div>

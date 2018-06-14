@@ -4,7 +4,8 @@ import { CartService } from '../core/cart.service';
 @Component({
   selector: 'app-cart',
   templateUrl: './cart.component.html',
-  styleUrls: ['./cart.component.css']
+  styleUrls: ['./cart.component.css'],
+  // providers: [CartService]
 })
 export class CartComponent implements OnInit, OnDestroy {
   cartOfFruits: Array<string>;
@@ -20,6 +21,8 @@ export class CartComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
   }
+
+  // show how important to send copy of array, not reference
 
   ngOnDestroy(): void {
     //Called once, before the instance is destroyed.
