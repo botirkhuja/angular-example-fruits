@@ -1,36 +1,16 @@
-
-<!-- <p [ngStyle]="{backgroundColor: 'yellow'}">
-  {{ fruitName }}
-</p> -->
-
-<!-- <p [ngClass]="['yellow', 'pink-text']">
-  {{ fruitName }}
-</p> -->
-
-<!-- <p [ngClass]="{'yellow': fruitName === 'banana'}">
-    {{ fruitName }}
-</p> -->
-
-<!-- <ul>
-  <li
-    *ngFor="let eachFruit of listOfFruits"
-    [ngClass]="eachFruit"
-    >
-    <app-fruit [fruitName]="eachFruit" (removeMe)="removeFruit($event)"></app-fruit>
-  </li>
-</ul> -->
-
 <div class="row">
   <div class="col-8">
-    <app-fruit (fruitMatched)="fruitName = $event">
-        <!-- <p #parentContent>Some testing purpose</p> -->
-    </app-fruit>
+    <div class="row">
+      <div class="col">
+        <app-add-fruit (fruitMatched)="fruitName = $event">
+        </app-add-fruit>
+      </div>
+      <div class="col" *ngIf="isEditModeEnabaled">
+        <app-edit-fruit [fruitName]="fruitIndexToEdit"></app-edit-fruit>
+      </div>
+    </div>
   </div>
   <div class="col-4 align-self-end">
-    <app-cart [inputName]="fruitName"></app-cart>
+    <app-cart (selectedFruit)="onFruitSelectionToEdit($event)"></app-cart>
   </div>
 </div>
-
-
-
-<!-- <button (click)="fruitName = null">Close app cart</button> -->

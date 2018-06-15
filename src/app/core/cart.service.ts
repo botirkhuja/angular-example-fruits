@@ -20,4 +20,9 @@ export class CartService {
   getCartContent(): Array<string>{
     return this.cartList;
   }
+
+  updateCartContent(index: number): boolean {
+
+    return true;
+  }
 }
