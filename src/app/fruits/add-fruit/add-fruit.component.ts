@@ -1,0 +1,47 @@
+import { CartService } from '../../core/cart.service';
+import {
+  Component,
+  OnInit,
+  Input,
+  Output,
+  EventEmitter,
+  ViewChild,
+  ElementRef,
+  ContentChild,
+} from '@angular/core';
+
+@Component({
+  selector: 'app-add-fruit',
+  templateUrl: './add-fruit.component.html',
+  styleUrls: ['./add-fruit.component.css'],
+})
+export class AddFruitComponent implements OnInit {
+
+  isButtonDisabled: boolean = true;
+  fruitName: string = '';
+  @ViewChild('fruitInputRef') inputRef: ElementRef;
+
+  constructor(
+    private cartS: CartService
+  ) { }
+
+  ngOnInit() {
+  }
+
+  onInputChange(event) {
+    const enteredFruitName = event.target.value;
+
+
+    if (enteredFruitName.length > 0) {
+      this.isButtonDisabled = false;
+    } else {
+      this.isButtonDisabled = true;
+    }
+  }
+
+  onAddingFruit() {
+    const passedFruitValue = this.inputRef.nativeElement.value;
+      this.cartS.addToCart(passedFruitValue);
+  }
+
+}
