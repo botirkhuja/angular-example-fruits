@@ -41,7 +41,8 @@ export class AddFruitComponent implements OnInit {
 
   onAddingFruit() {
     const passedFruitValue = this.inputRef.nativeElement.value;
-      this.cartS.addToCart(passedFruitValue);
+    this.cartS.addToCart(passedFruitValue);
+    console.log(this.cartS.listOFItems);
   }
 
 }

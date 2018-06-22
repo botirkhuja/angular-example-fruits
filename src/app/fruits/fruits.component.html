@@ -2,12 +2,25 @@
   <div class="col-8">
     <div class="row">
       <div class="col">
-        <app-add-fruit (fruitMatched)="fruitName = $event">
-        </app-add-fruit>
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link"
+              routerLink="/"
+              routerLinkActive="active"
+              [routerLinkActiveOptions]="{exact: true}">Add Fruit</a>
+          </li>
+          <li class="nav-item">
+            <a
+            class="nav-link"
+              [routerLink]="routingToTheFruitToEdit"
+              routerLinkActive="active"
+              >Edit Fruit</a>
+          </li>
+        </ul>
       </div>
-      <div class="col" *ngIf="isEditModeEnabaled">
-        <app-edit-fruit [fruitName]="fruitIndexToEdit"></app-edit-fruit>
-      </div>
+    </div>
+    <div class="row">
+      <router-outlet></router-outlet>
     </div>
   </div>
   <div class="col-4 align-self-end">

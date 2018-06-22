@@ -5,8 +5,10 @@ import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { FruitsComponent } from './fruits/fruits.component';
 import { AddFruitComponent } from './fruits/add-fruit/add-fruit.component';
-import { CartService } from './core/cart.service';
 import { EditFruitComponent } from './fruits/edit-fruit/edit-fruit.component';
+import { Routes, RouterModule } from '@angular/router';
+import { CustomInputComponent } from './custom-input/custom-input.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -14,12 +16,14 @@ import { EditFruitComponent } from './fruits/edit-fruit/edit-fruit.component';
     CartComponent,
     FruitsComponent,
     AddFruitComponent,
-    EditFruitComponent
+    EditFruitComponent,
+    CustomInputComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
-  providers: [CartService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

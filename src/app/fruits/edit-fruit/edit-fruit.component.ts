@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartService } from '../../core/cart.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-fruit',
@@ -8,20 +9,14 @@ import { CartService } from '../../core/cart.service';
 })
 export class EditFruitComponent implements OnInit {
 
-  @Input() fruitName: {
-    value: string,
-    index: number
-  };
+  // @Input() fruitName: {
+  //   value: string,
+  //   index: number
+  // };
 
-  constructor(
-    private carService: CartService
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-  }
-
-  onSave() {
-    const result = this.carService.updateCartContent(this.fruitName.index);
   }
 
 }

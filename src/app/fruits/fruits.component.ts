@@ -1,8 +1,10 @@
 import { CartService } from '../core/cart.service';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import {
   Component,
   OnInit
 } from '@angular/core';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-fruits',
@@ -10,20 +12,24 @@ import {
   styleUrls: ['./fruits.component.css'],
 })
 export class FruitsComponent implements OnInit {
-  fruitIndexToEdit: any;
+  // fruitIndexToEdit: any;
   showChildComponent: boolean;
   isEditModeEnabaled: boolean;
-  listOfFruits: Array<string> = [];
+  routingToTheFruitToEdit: Array<string | number>;
 
-  constructor() {}
+
+  constructor(
+    private routeService: ActivatedRoute,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    this.routingToTheFruitToEdit = ['edit'];
     this.showChildComponent = false;
     this.isEditModeEnabaled = false;
   }
 
-  onFruitSelectionToEdit(event: number) {
-    this.fruitIndexToEdit = event;
-    this.isEditModeEnabaled = true;
+  onFruitSelectionToEdit(fruit: {value: string, index: number}) {
+    this.router.navigate(['edit', fruit.index])
   }
 }
