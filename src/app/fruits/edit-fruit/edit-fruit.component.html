@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col">
-    <p>This is edit mode</p>
+    <p *ngIf="!isChildrenLoaded">Please select cart item to edit!</p>
     <router-outlet></router-outlet>
   </div>
 </div>

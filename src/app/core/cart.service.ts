@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { ReplaySubject } from 'rxjs';
 import { Router } from '@angular/router';
 
 // @Injectable()
@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class CartService {
   private cartList: Array<string>;
-  public listOFItems: Subject<any>;
+  public listOFItems: ReplaySubject<any>;
 
   constructor(
     private routerService: Router
@@ -17,7 +17,7 @@ export class CartService {
       'grape',
       'date'
     ];
-    this.listOFItems = new Subject();
+    this.listOFItems = new ReplaySubject(1);
     this.listOFItems.next([...this.cartList]);
   }
 

@@ -1,10 +1,11 @@
-import { CartService } from '../core/cart.service';
-import { ActivatedRoute, ParamMap, Router } from '@angular/router';
+
+import { Router } from '@angular/router';
 import {
   Component,
   OnInit
 } from '@angular/core';
-import { switchMap } from 'rxjs/operators';
+
+import { EditService } from '../core/edit.service';
 
 @Component({
   selector: 'app-fruits',
@@ -19,17 +20,25 @@ export class FruitsComponent implements OnInit {
 
 
   constructor(
-    private routeService: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private editService: EditService
   ) {}
 
   ngOnInit() {
     this.routingToTheFruitToEdit = ['edit'];
     this.showChildComponent = false;
     this.isEditModeEnabaled = false;
+
+    this.editService.currentEditingItem.subscribe((num: number)=>{
+      if (num >= 0) {
+        this.router.navigate(['edit', num]);
+      }
+    })
+
   }
 
-  onFruitSelectionToEdit(fruit: {value: string, index: number}) {
-    this.router.navigate(['edit', fruit.index])
-  }
+  // onFruitSelectionToEdit(fruit: {value: string, index: number}) {
+  //   this.editService.currentEditingItem.next(fruit.index)
+  //   this.router.navigate(['edit', fruit.index])
+  // }
 }
