@@ -9,6 +9,8 @@ import { EditFruitComponent } from './fruits/edit-fruit/edit-fruit.component';
 import { Routes, RouterModule } from '@angular/router';
 import { CustomInputComponent } from './custom-input/custom-input.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component';
+import { UnknownPageComponent } from './unknown-page/unknown-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { AppRoutingModule } from './app-routing.module';
     FruitsComponent,
     AddFruitComponent,
     EditFruitComponent,
-    CustomInputComponent
+    CustomInputComponent,
+    LoginComponent,
+    UnknownPageComponent
   ],
   imports: [
     BrowserModule,

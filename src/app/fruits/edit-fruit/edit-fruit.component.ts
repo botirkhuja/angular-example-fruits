@@ -23,7 +23,7 @@ export class EditFruitComponent implements OnInit, OnDestroy {
       // any other number: true
       // if (typeof num === 'number') {
       if (num >= 0) {
-        console.log('editing number', num)
+        console.log('editing number', num);
         this.isChildrenLoaded = true;
         this.changeDetectionReferace.detectChanges();
       }

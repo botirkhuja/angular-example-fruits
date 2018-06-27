@@ -7,7 +7,12 @@
             <a class="nav-link"
               routerLink="/"
               routerLinkActive="active"
-              [routerLinkActiveOptions]="{exact: true}">Add Fruit</a>
+              [routerLinkActiveOptions]="{exact: true}">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link"
+              routerLink="/add"
+              routerLinkActive="active">Add Fruit</a>
           </li>
           <li class="nav-item">
             <a
@@ -23,7 +28,7 @@
       <router-outlet></router-outlet>
     </div>
   </div>
-  <div class="col-4 align-self-end">
+  <div class="col-4 align-self-start">
     <app-cart></app-cart>
   </div>
 </div>

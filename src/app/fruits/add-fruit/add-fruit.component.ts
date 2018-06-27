@@ -1,4 +1,5 @@
 import { CartService } from '../../core/cart.service';
+import { EditService } from '../../core/edit.service';
 import {
   Component,
   OnInit,
@@ -22,10 +23,12 @@ export class AddFruitComponent implements OnInit {
   @ViewChild('fruitInputRef') inputRef: ElementRef;
 
   constructor(
-    private cartS: CartService
+    private cartS: CartService,
+    private editService: EditService
   ) { }
 
   ngOnInit() {
+    this.editService.currentEditingItem.next(-1);
   }
 
   onInputChange(event) {

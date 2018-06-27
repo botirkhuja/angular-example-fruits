@@ -13,13 +13,10 @@ export class CartComponent implements OnInit, OnDestroy {
   selectedFruitName: string;
   private subscription: Subscription;
 
-  // @Output() selectedFruit = new EventEmitter();
-
   constructor(
     private cartS: CartService,
     private editService: EditService
   ) {
-    // this.cartOfFruits = this.cartS.getCartContent();
     console.log(this.cartS.listOFItems)
   }
 
@@ -27,16 +24,12 @@ export class CartComponent implements OnInit, OnDestroy {
     this.subscription = this.cartS.listOFItems.subscribe((result: Array<string>)=>{
       this.cartOfFruits = result;
     });
-    // this.cartOfFruits = this.cartS.getCartContent();
     this.selectedFruitName = '';
   }
 
   onEdit(index: number, name: string) {
-    // this.cartOfFruits[0] = 'Something different';
-    // console.log(this.cartS.getCartContent());
     this.editService.currentEditingItem.next(index);
     this.selectedFruitName = name;
-    // this.selectedFruit.emit({value: name, index: index});
   }
 
   ngOnDestroy() {
