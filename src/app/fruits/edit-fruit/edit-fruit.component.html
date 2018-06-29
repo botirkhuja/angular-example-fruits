@@ -1,6 +1,7 @@
 <div class="row">
   <div class="col">
     <p *ngIf="!isChildrenLoaded">Please select cart item to edit!</p>
+    <p *ngIf="!resolvedData.loginStatus">{{resolvedData.message}}</p>
     <router-outlet></router-outlet>
   </div>
 </div>

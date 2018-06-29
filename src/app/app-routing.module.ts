@@ -7,6 +7,7 @@ import { CustomInputComponent } from "./custom-input/custom-input.component";
 import { LoginComponent } from "./login/login.component";
 import { AuthGuardService } from './auth-guard.service';
 import { UnknownPageComponent } from './unknown-page/unknown-page.component';
+import { EditResolverService } from "./fruits/edit-fruit/edit-resolver.service";
 
 const routes: Routes = [
   {
@@ -20,6 +21,7 @@ const routes: Routes = [
   },
   {
     path: 'edit',
+    resolve: {data: EditResolverService},
     component: EditFruitComponent,
     canActivate: [AuthGuardService],
     canActivateChild: [AuthGuardService],
@@ -32,7 +34,8 @@ const routes: Routes = [
   },
   {
     path: 'unknown',
-    component: UnknownPageComponent
+    component: UnknownPageComponent,
+    data: {messageToShow: "This page is unknown page"}
   },
   {
     path: '**',
