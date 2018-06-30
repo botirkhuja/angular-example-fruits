@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Observable, Observer } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,15 @@ export class LoginService {
       }, 800)
     })
     return promise;
+  }
+
+  isLoggedInObservable(): Observable<boolean> {
+    const observable: Observable<boolean> = Observable.create((observer: Observer<boolean>) => {
+
+        observer.next(this.loginStatus);
+
+    })
+    return observable;
   }
 
 }
