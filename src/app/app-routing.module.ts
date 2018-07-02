@@ -1,13 +1,13 @@
-import { Routes, RouterModule } from "@angular/router";
-import { NgModule } from "@angular/core";
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 
-import { AddFruitComponent } from "./fruits/add-fruit/add-fruit.component";
-import { EditFruitComponent } from "./fruits/edit-fruit/edit-fruit.component";
-import { CustomInputComponent } from "./custom-input/custom-input.component";
-import { LoginComponent } from "./login/login.component";
+import { AddFruitComponent } from './fruits/add-fruit/add-fruit.component';
+import { EditFruitComponent } from './fruits/edit-fruit/edit-fruit.component';
+import { CustomInputComponent } from './custom-input/custom-input.component';
+import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { UnknownPageComponent } from './unknown-page/unknown-page.component';
-import { EditResolverService } from "./fruits/edit-fruit/edit-resolver.service";
+import { EditResolverService } from './fruits/edit-fruit/edit-resolver.service';
 
 const routes: Routes = [
   {
@@ -35,7 +35,7 @@ const routes: Routes = [
   {
     path: 'unknown',
     component: UnknownPageComponent,
-    data: {messageToShow: "This page is unknown page"}
+    data: {messageToShow: 'This page is unknown page'}
   },
   {
     path: '**',

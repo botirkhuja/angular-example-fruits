@@ -14,12 +14,12 @@ export class EditResolverService implements Resolve<{loginStatus: boolean, messa
   resolve() {
     return this.loginService.isLoggedIn().then((status: boolean) => {
       if (status) {
-        return {loginStatus: status, message: "User Logged in"};
+        return {loginStatus: status, message: 'User Logged in'};
       }
       return {
         loginStatus: status,
-        message: "Please log in to edit cart content"
-      }
-    })
+        message: 'Please log in to edit cart content'
+      };
+    });
   }
 }

@@ -10,7 +10,7 @@ import { ActivatedRoute, Data } from '@angular/router';
 })
 export class EditFruitComponent implements OnInit, OnDestroy {
   isChildrenLoaded: boolean;
-  resolvedData: {loginStatus: boolean, message: string}
+  resolvedData: {loginStatus: boolean, message: string};
 
   private subscription: Subscription;
 

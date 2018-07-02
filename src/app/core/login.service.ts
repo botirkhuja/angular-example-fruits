@@ -21,8 +21,8 @@ export class LoginService {
     const promise = new Promise((resolve, reject) => {
       setTimeout(() => {
         resolve(this.loginStatus);
-      }, 800)
-    })
+      }, 800);
+    });
     return promise;
   }
 
@@ -31,7 +31,7 @@ export class LoginService {
 
         observer.next(this.loginStatus);
 
-    })
+    });
     return observable;
   }
 

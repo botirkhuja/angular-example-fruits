@@ -26,7 +26,7 @@ export class CartService {
     this.listOFItems.next([...this.cartList]);
   }
 
-  getCartContent(): Array<string>{
+  getCartContent(): Array<string> {
     // return this.cartList.slice();
     return [...this.cartList];
   }

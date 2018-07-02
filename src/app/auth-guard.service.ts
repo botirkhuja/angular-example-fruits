@@ -20,22 +20,22 @@ export class AuthGuardService implements CanActivate, CanActivateChild {
       console.log('canActivate route is', route);
       return this.lS.isLoggedIn().then(
         (result: boolean) => {
-          if (result === true){
+          if (result === true) {
             return true;
           // } else if (route.routeConfig.path === 'edit') {
           //   return true;
           } else if (route.component === EditFruitComponent) {
             return true;
           } else {
-            this.router.navigate(['/'])
+            this.router.navigate(['/']);
             // return false
           }
         }
-      )
+      );
   }
 
   canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.canActivate(route, state)
+    return this.lS.isLoggedInObservable();
   }
 
 
