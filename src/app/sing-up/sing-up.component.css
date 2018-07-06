@@ -1,0 +1,4 @@
+.ng-invalid.ng-dirty {
+  border-color: red;
+  border-spacing: 2px;
+}

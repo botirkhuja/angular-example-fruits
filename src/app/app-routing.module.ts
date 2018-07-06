@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { UnknownPageComponent } from './unknown-page/unknown-page.component';
 import { EditResolverService } from './fruits/edit-fruit/edit-resolver.service';
+import { SingUpComponent } from './sing-up/sing-up.component';
 
 const routes: Routes = [
   {
@@ -31,6 +32,10 @@ const routes: Routes = [
         component: CustomInputComponent,
       }
     ]
+  },
+  {
+    path: 'sign-up',
+    component: SingUpComponent,
   },
   {
     path: 'unknown',
