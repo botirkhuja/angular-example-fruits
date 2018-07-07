@@ -38,7 +38,7 @@ export class SingUpComponent implements OnInit {
       userInformation: {
         userName: 'Jane Williams'
       }
-    })
+    });
   }
 
 }

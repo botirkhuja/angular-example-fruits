@@ -1,0 +1,45 @@
+<form [formGroup]="favoritesForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="personsInfo">
+    <div class="form-group">
+      <label for="exampleInputPassword1">Name</label>
+      <input formControlName="personName"
+        type="input" class="form-control" id="exampleInputPassword1" placeholder="Name">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Email address</label>
+      <input formControlName="personEmail"
+        type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+      <small
+        *ngIf="favoritesForm.get('personsInfo.personEmail').valid && favoritesForm.get('personsInfo.personEmail').dirty"
+        id="emailHelp"
+        class="form-text text-muted"
+      >We'll never share your email with anyone else.</small>
+    </div>
+  </div>
+  <div class="form-check" *ngFor="let gender of genders">
+    <label class="form-check-label">
+      <input formControlName="personGender"
+        type="radio" class="form-check-input" name="personGender" [value]="gender">
+      {{gender}}
+    </label>
+  </div>
+  <div formArrayName="fruitNames">
+      <div class="form-group" *ngFor="let fruitControl of favoritesForm.get('fruitNames').controls; let fruitIndex = index">
+          <label for=""></label>
+          <input type="text" [formControlName]="fruitIndex"
+            class="form-control" aria-describedby="helpId" placeholder="Enter Fruit Name"
+          >
+          <small class="form-text text-muted">Help text</small>
+        </div>
+  </div>
+  <span *ngIf="favoritesForm.invalid && favoritesForm.dirty" class="form-text text-muted">
+    <small>Please enter required inputs</small>
+  </span>
+  <button
+    type="button"
+    class="btn btn-secondary"
+    (click)="onAddFruit()"
+  >Add Fruit
+  </button>
+  <button type="submit" class="btn btn-primary">Send Email</button>
+</form>

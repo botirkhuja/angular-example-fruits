@@ -29,11 +29,11 @@ export class FruitsComponent implements OnInit {
     this.showChildComponent = false;
     this.isEditModeEnabaled = false;
 
-    this.editService.currentEditingItem.subscribe((num: number)=>{
+    this.editService.currentEditingItem.subscribe((num: number) => {
       if (num >= 0) {
         this.router.navigate(['edit', num]);
       }
-    })
+    });
 
   }
 

@@ -9,6 +9,7 @@ import { AuthGuardService } from './auth-guard.service';
 import { UnknownPageComponent } from './unknown-page/unknown-page.component';
 import { EditResolverService } from './fruits/edit-fruit/edit-resolver.service';
 import { SingUpComponent } from './sing-up/sing-up.component';
+import { FavoritesComponent } from './fruits/favorites/favorites.component';
 
 const routes: Routes = [
   {
@@ -36,6 +37,10 @@ const routes: Routes = [
   {
     path: 'sign-up',
     component: SingUpComponent,
+  },
+  {
+    path: 'favorites',
+    component: FavoritesComponent,
   },
   {
     path: 'unknown',
