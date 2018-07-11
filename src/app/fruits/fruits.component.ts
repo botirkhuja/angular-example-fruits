@@ -17,6 +17,7 @@ export class FruitsComponent implements OnInit {
   showChildComponent: boolean;
   isEditModeEnabaled: boolean;
   routingToTheFruitToEdit: Array<string | number>;
+  todaysDate = new Date();
 
 
   constructor(

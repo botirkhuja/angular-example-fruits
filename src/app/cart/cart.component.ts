@@ -16,12 +16,10 @@ export class CartComponent implements OnInit, OnDestroy {
   constructor(
     private cartS: CartService,
     private editService: EditService
-  ) {
-    console.log(this.cartS.listOFItems)
-  }
+  ) {  }
 
   ngOnInit() {
-    this.subscription = this.cartS.listOFItems.subscribe((result: Array<string>)=>{
+    this.subscription = this.cartS.listOFItems.subscribe((result: Array<string>) => {
       this.cartOfFruits = result;
     });
     this.selectedFruitName = '';

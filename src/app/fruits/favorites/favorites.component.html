@@ -4,6 +4,14 @@
       <label for="exampleInputPassword1">Name</label>
       <input formControlName="personName"
         type="input" class="form-control" id="exampleInputPassword1" placeholder="Name">
+        <small
+        *ngIf="
+          favoritesForm.get('personsInfo.personName').errors &&
+          favoritesForm.get('personsInfo.personName').errors['nameRestricted'] &&
+          favoritesForm.get('personsInfo.personName').dirty"
+        id="emailHelp"
+        class="form-text text-muted"
+      >Name is not allowed</small>
     </div>
     <div class="form-group">
       <label for="exampleInputEmail1">Email address</label>
@@ -14,6 +22,13 @@
         id="emailHelp"
         class="form-text text-muted"
       >We'll never share your email with anyone else.</small>
+      <small
+        *ngIf="
+          favoritesForm.get('personsInfo.personEmail').errors &&
+          favoritesForm.get('personsInfo.personEmail').errors['emailRestricted']"
+        id="emailHelp"
+        class="form-text text-muted"
+      >This email is restricted. Try another one</small>
     </div>
   </div>
   <div class="form-check" *ngFor="let gender of genders">
@@ -24,7 +39,7 @@
     </label>
   </div>
   <div formArrayName="fruitNames">
-      <div class="form-group" *ngFor="let fruitControl of favoritesForm.get('fruitNames').controls; let fruitIndex = index">
+      <div class="form-group" *ngFor="let fruitControl of favoritesForm.get('fruitNames')['controls']; let fruitIndex = index">
           <label for=""></label>
           <input type="text" [formControlName]="fruitIndex"
             class="form-control" aria-describedby="helpId" placeholder="Enter Fruit Name"

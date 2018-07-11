@@ -14,6 +14,7 @@ import { LoginComponent } from './login/login.component';
 import { UnknownPageComponent } from './unknown-page/unknown-page.component';
 import { SingUpComponent } from './sing-up/sing-up.component';
 import { FavoritesComponent } from './fruits/favorites/favorites.component';
+import { ShortnamePipe } from './cart/shortname.pipe';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { FavoritesComponent } from './fruits/favorites/favorites.component';
     LoginComponent,
     UnknownPageComponent,
     SingUpComponent,
-    FavoritesComponent
+    FavoritesComponent,
+    ShortnamePipe
   ],
   imports: [
     BrowserModule,
