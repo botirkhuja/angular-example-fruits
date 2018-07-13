@@ -18,8 +18,8 @@ import {
 })
 export class AddFruitComponent implements OnInit {
 
-  isButtonDisabled: boolean = true;
-  fruitName: string = '';
+  isButtonDisabled = true;
+  fruitName = '';
   @ViewChild('fruitInputRef') inputRef: ElementRef;
 
   constructor(
@@ -45,7 +45,6 @@ export class AddFruitComponent implements OnInit {
   onAddingFruit() {
     const passedFruitValue = this.inputRef.nativeElement.value;
     this.cartS.addToCart(passedFruitValue);
-    console.log(this.cartS.listOFItems);
   }
 
 }

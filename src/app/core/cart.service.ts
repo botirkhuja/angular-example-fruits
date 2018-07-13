@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ReplaySubject } from 'rxjs';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
 
 // @Injectable()
 @Injectable({
@@ -11,7 +14,8 @@ export class CartService {
   public listOFItems: ReplaySubject<any>;
 
   constructor(
-    private routerService: Router
+    private routerService: Router,
+    private httpClient: HttpClient
   ) {
     this.cartList = [
       'grape',
@@ -37,5 +41,29 @@ export class CartService {
     this.listOFItems.next([...this.cartList]);
     this.routerService.navigateByUrl('/');
     // return true;
+  }
+
+  updateWholeCart(newCartItems) {
+    this.listOFItems.next([...newCartItems]);
+  }
+
+  fetchData() {
+    return this.httpClient.get('https://mybackend-a3979.firebaseio.com/data.json')
+      // .pipe(
+      //   catchError( error => {
+      //     console.log(error);
+      //     this.routerService.navigate(['unknown']);
+      //     return of(error);
+      //   })
+      // )
+      ;
+  }
+
+  postData() {
+    const dataToPost = {
+      cartItems: this.cartList
+    };
+
+    return this.httpClient.put('https://mybackend-a3979.firebaseio.com/data.json', dataToPost);
   }
 }
