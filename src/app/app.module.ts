@@ -16,6 +16,10 @@ import { UnknownPageComponent } from './unknown-page/unknown-page.component';
 import { SingUpComponent } from './sing-up/sing-up.component';
 import { FavoritesComponent } from './fruits/favorites/favorites.component';
 import { ShortnamePipe } from './cart/shortname.pipe';
+import { ColorChangerDirective } from './fruits/favorites/color-changer.directive';
+import { BackgroundColorChangerDirective } from './fruits/favorites/background-color-changer.directive';
+import { TextColorChangerDirective } from './fruits/favorites/text-color-changer.directive';
+import { UnlessDirective } from './fruits/favorites/unless.directive';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,11 @@ import { ShortnamePipe } from './cart/shortname.pipe';
     UnknownPageComponent,
     SingUpComponent,
     FavoritesComponent,
-    ShortnamePipe
+    ShortnamePipe,
+    ColorChangerDirective,
+    BackgroundColorChangerDirective,
+    TextColorChangerDirective,
+    UnlessDirective
   ],
   imports: [
     BrowserModule,
