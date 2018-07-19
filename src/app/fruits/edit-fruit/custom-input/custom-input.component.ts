@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { CartService } from '../core/cart.service';
-import { EditService } from '../core/edit.service';
+import { CartService } from '../../../core/cart.service';
+import { EditService } from '../../../core/edit.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -12,7 +12,7 @@ import { Subscription } from 'rxjs';
 export class CustomInputComponent implements OnInit, OnDestroy {
   fruitIndex: number;
   fruitName: string;
-  private subscription: Subscription
+  private subscription: Subscription;
 
   constructor(
     private route: ActivatedRoute,
@@ -21,12 +21,12 @@ export class CustomInputComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.subscription = this.route.params.subscribe( (params)=>{
+    this.subscription = this.route.params.subscribe( (params) => {
       this.fruitIndex = params.fruitIndex;
       const cartContent = this.cartService.getCartContent();
       this.fruitName = cartContent[this.fruitIndex];
       this.editService.currentEditingItem.next(params.fruitIndex);
-    })
+    });
   }
 
   onSave(newValue: string) {

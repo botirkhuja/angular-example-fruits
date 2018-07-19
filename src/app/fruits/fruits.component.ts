@@ -1,5 +1,5 @@
 
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import {
   Component,
   OnInit
@@ -22,6 +22,7 @@ export class FruitsComponent implements OnInit {
 
   constructor(
     private router: Router,
+    private activatedRoute: ActivatedRoute,
     private editService: EditService
   ) {}
 
@@ -32,7 +33,7 @@ export class FruitsComponent implements OnInit {
 
     this.editService.currentEditingItem.subscribe((num: number) => {
       if (num >= 0) {
-        this.router.navigate(['edit', num]);
+        this.router.navigate(['edit', num], {relativeTo: this.activatedRoute});
       }
     });
 

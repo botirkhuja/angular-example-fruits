@@ -1,6 +1,6 @@
 import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
-import { CartService } from '../core/cart.service';
-import { EditService } from '../core/edit.service';
+import { CartService } from '../../core/cart.service';
+import { EditService } from '../../core/edit.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -8,6 +8,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './cart.component.html',
   styleUrls: ['./cart.component.css']
 })
+
 export class CartComponent implements OnInit, OnDestroy {
   cartOfFruits: Array<string>;
   selectedFruitName: string;

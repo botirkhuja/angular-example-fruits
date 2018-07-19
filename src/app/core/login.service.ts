@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
@@ -7,10 +8,11 @@ import { Observable, Observer } from 'rxjs';
 export class LoginService {
   private loginStatus = false;
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   logUserIn(): void {
     this.loginStatus = true;
+    this.router.navigateByUrl('fruits');
   }
 
   logUserOut(): void {

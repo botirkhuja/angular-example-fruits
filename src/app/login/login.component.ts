@@ -19,39 +19,39 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit() {
-    this.observableInterval = interval(1000).subscribe((num) => {
-      console.log('interval', num);
-    });
+    // this.observableInterval = interval(1000).subscribe((num) => {
+    //   console.log('interval', num);
+    // });
 
-    this.newObservable = Observable.create((observer: Observer<string>) => {
-      setTimeout(() => {
-        console.log(observer.closed)
-        observer.next('First Data from Observable');
-      }, 1000);
-      setTimeout(() => {
-        console.log(observer.closed)
-        observer.next('Second data');
-      }, 4000);
-      // setTimeout(() => {
-      //   observer.error('Error happened')
-      // }, 6000);
-      setTimeout(() => {
-        observer.complete()
-      }, 7000);
-    })
+    // this.newObservable = Observable.create((observer: Observer<string>) => {
+    //   setTimeout(() => {
+    //     console.log(observer.closed);
+    //     observer.next('First Data from Observable');
+    //   }, 1000);
+    //   setTimeout(() => {
+    //     console.log(observer.closed);
+    //     observer.next('Second data');
+    //   }, 4000);
+    //   // setTimeout(() => {
+    //   //   observer.error('Error happened')
+    //   // }, 6000);
+    //   setTimeout(() => {
+    //     observer.complete();
+    //   }, 7000);
+    // });
 
-    this.subscriptionFromNewObservable = this.newObservable
-      .subscribe(
-        (data: string) => {
-          console.log('observable:', data);
-        },
-        (error: any) => {
-          console.log('error is:', error);
-        },
-        () => {
-          console.log('completed');
-        }
-      )
+    // this.subscriptionFromNewObservable = this.newObservable
+    //   .subscribe(
+    //     (data: string) => {
+    //       console.log('observable:', data);
+    //     },
+    //     (error: any) => {
+    //       console.log('error is:', error);
+    //     },
+    //     () => {
+    //       console.log('completed');
+    //     }
+    //   );
 
   }
 
@@ -60,8 +60,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.observableInterval.unsubscribe();
-    this.subscriptionFromNewObservable.unsubscribe();
+    // this.observableInterval.unsubscribe();
+    // this.subscriptionFromNewObservable.unsubscribe();
   }
 
 }
