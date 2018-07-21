@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { UnknownPageComponent } from './unknown-page/unknown-page.component';
 import { SingUpComponent } from './sing-up/sing-up.component';
 import { FruitsModule } from './fruits/fruits.module';
+import { CartService } from './core/cart.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,6 @@ import { FruitsModule } from './fruits/fruits.module';
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    FruitsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

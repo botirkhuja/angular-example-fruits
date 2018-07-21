@@ -1,4 +1,5 @@
-import { Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { NgModule } from '@angular/core';
 import { FruitsComponent } from './fruits.component';
 import { AddFruitComponent } from './add-fruit/add-fruit.component';
 import { AuthGuardService } from '../auth-guard.service';
@@ -8,10 +9,10 @@ import { CustomInputComponent } from './edit-fruit/custom-input/custom-input.com
 import { FavoritesComponent } from './favorites/favorites.component';
 
 const routes: Routes = [
-  // {
-  //   path: '',
-  //   component: FruitsComponent,
-  //   children: [
+  {
+    path: '',
+    component: FruitsComponent,
+    children: [
       {
         path: 'add',
         component: AddFruitComponent,
@@ -35,6 +36,17 @@ const routes: Routes = [
         component: FavoritesComponent,
       },
 
-    // ]
-  // },
+    ]
+  },
 ];
+
+@NgModule({
+  imports: [
+    RouterModule.forChild(routes)
+  ],
+  exports: [
+    RouterModule
+  ]
+})
+
+export class FruitsRoutingModule {}

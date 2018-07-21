@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { CartComponent } from './cart/cart.component';
 import { FruitsComponent } from './fruits.component';
 import { AddFruitComponent } from './add-fruit/add-fruit.component';
@@ -11,15 +13,15 @@ import { ColorChangerDirective } from './favorites/color-changer.directive';
 import { BackgroundColorChangerDirective } from './favorites/background-color-changer.directive';
 import { UnlessDirective } from './favorites/unless.directive';
 import { TextColorChangerDirective } from './favorites/text-color-changer.directive';
-import { RouterModule } from '@angular/router';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FruitsRoutingModule } from './fruits-routing.module';
+import { CartService } from '../core/cart.service';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule
+    FruitsRoutingModule
   ],
   declarations: [
     CartComponent,
@@ -34,5 +36,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     TextColorChangerDirective,
     UnlessDirective
   ],
+  providers: [CartService]
 })
 export class FruitsModule { }

@@ -6,9 +6,7 @@ import { catchError } from 'rxjs/operators';
 import { of } from 'rxjs';
 
 // @Injectable()
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class CartService {
   private cartList: Array<string>;
   public listOFItems: ReplaySubject<any>;
@@ -23,6 +21,7 @@ export class CartService {
     ];
     this.listOFItems = new ReplaySubject(1);
     this.listOFItems.next([...this.cartList]);
+    console.log('cart service is created');
   }
 
   addToCart(item: string) {
