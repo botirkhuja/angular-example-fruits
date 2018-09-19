@@ -55,8 +55,8 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   }
 
-  onSubmit() {
-    this.loginService.logUserIn();
+  onSubmit(email: string, password: string) {
+    this.loginService.logUserIn(email, password);
   }
 
   ngOnDestroy() {

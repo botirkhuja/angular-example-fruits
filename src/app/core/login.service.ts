@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { Router } from '@angular/router';
+import * as firebase from 'firebase';
 
 @Injectable({
   providedIn: 'root'
@@ -10,9 +11,13 @@ export class LoginService {
 
   constructor(private router: Router) { }
 
-  logUserIn(): void {
-    this.loginStatus = true;
-    this.router.navigateByUrl('fruits');
+  logUserIn(email, password): void {
+    firebase.auth().signInWithEmailAndPassword(email, password)
+      .then(response => {
+        this.loginStatus = true;
+        this.router.navigateByUrl('fruits');
+      })
+      .catch(error => console.log('Error in login', error));
   }
 
   logUserOut(): void {
@@ -35,6 +40,11 @@ export class LoginService {
 
     });
     return observable;
+  }
+
+  signUp(email: string, password: string) {
+    firebase.auth().createUserWithEmailAndPassword(email, password)
+      .catch(error => console.log('error in signing up', error));
   }
 
 }

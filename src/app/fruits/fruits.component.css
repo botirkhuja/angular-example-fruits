@@ -7,3 +7,7 @@
 .strawberry {
   background-color: pink;
 }
+
+/deep/ .card-header {
+  background-color: pink;
+}

@@ -9,6 +9,8 @@ import {
   ViewChild,
   ElementRef,
   ContentChild,
+  AfterContentInit,
+  ContentChildren,
 } from '@angular/core';
 
 @Component({
@@ -16,11 +18,12 @@ import {
   templateUrl: './add-fruit.component.html',
   styleUrls: ['./add-fruit.component.css'],
 })
-export class AddFruitComponent implements OnInit {
+export class AddFruitComponent implements OnInit, AfterContentInit {
 
   isButtonDisabled = true;
   fruitName = '';
   @ViewChild('fruitInputRef') inputRef: ElementRef;
+  @ContentChild('somecontent') contentChildToView;
 
   constructor(
     private cartS: CartService,
@@ -29,6 +32,10 @@ export class AddFruitComponent implements OnInit {
 
   ngOnInit() {
     this.editService.currentEditingItem.next(-1);
+  }
+
+  ngAfterContentInit() {
+    console.log('Content', this.contentChildToView);
   }
 
   onInputChange(event) {

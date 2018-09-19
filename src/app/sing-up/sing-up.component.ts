@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { LoginService } from '../core/login.service';
 
 @Component({
   selector: 'app-sing-up',
@@ -12,13 +13,17 @@ export class SingUpComponent implements OnInit {
 
   userPassword: string;
 
-  constructor() { }
+  constructor(private loginService: LoginService) { }
 
   ngOnInit() {
     this.userPassword = '';
   }
 
   onSingUp() {
+    const email = this.singUPForm.value.userInformation.email;
+    const password = this.singUPForm.value.password;
+    
+    this.loginService.signUp(email, password)
     console.log('form is:', this.singUPForm);
   }
 
